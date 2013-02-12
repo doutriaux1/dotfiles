@@ -1,0 +1,15 @@
+CDATBUILDS="/lgm/uvcdat"
+fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
+setpy() {
+ source ${CDATBUILDS}/$1/bin/setup_cdat.sh
+}
+
+alias gst='git status'
+alias pb="python setup.py install"
+unalias emacs
+
+PROMPT_ADDRESS_COLOR=${_BLUE}
+PROMPT_COMMAND_HIST_INDEX_COLOR=${_GOLD}
+
+PS1=${PS1//\W/\w}
+
