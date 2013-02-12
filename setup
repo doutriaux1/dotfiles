@@ -1,0 +1,161 @@
+#!/bin/bash
+#*****************************************************************
+# Copyright (c) 2013 The 6Th Column Project
+# All rights reserved.
+#*****************************************************************
+#
+#  Organization: A Couple of Guys That Need A Life
+#   Directorate: Computation
+#    Department: Computing Applications and Research
+#       Program: Tom Foolery
+#       Project: BASH-FOO
+# First Authors: Gavin M. Bell (gavin@llnl.gov) &
+#                Charles Doutriaux (doutriaux1@llnl.gov)
+#
+#   Description:
+#   A clean and easy way to setup your local file environment that is hassle free.
+#   We use lots of different machines... it makes it less painful
+#
+#   Sets up dotbash_local and emacs and emacs.d in your home directory
+#
+#*****************************************************************
+# Copied from github.com:gavinmbell/bash_resources.git
+
+#TODO - implement revert_homedir function
+#TODO - write arg code to trigger revert if necessary
+
+DEBUG=0
+DRY_RUN=0
+FORCE=0
+
+homedir=${homedir:-${HOME:?"HOME environment var must be set!!!!"}}
+
+programs_to_check_for=()
+
+
+# Utility "private" method
+_readlinkf() {
+    # This is a portable implementation of GNU's "readlink -f" in
+    # bash/zsh, following symlinks recursively until they end in a
+    # file, and will print the full dereferenced path of the specified
+    # file even if the file isn't a symlink.
+    #
+    # Loop detection exists, but only as an abort after passing a
+    # maximum length.
+
+    local start_dir=$(pwd)
+    local file=${1}
+    cd $(dirname ${file})
+    file=$(basename ${file})
+
+    # Iterate down symlinks.  If we exceed a maximum number symlinks, assume that
+    # we're looped and die horribly.
+    local maxlinks=20
+    local count=0
+    local current_dir
+    while [ -L "${file}" ] ; do
+        file=$(readlink ${file})
+        cd $(dirname ${file})
+        file=$(basename ${file})
+        ((count++))
+        if (( count > maxlinks )) ; then
+            current_dir=$(pwd -P)
+            echo "CRITICAL FAILURE[4]: symlink loop detected on ${current_dir}/${file}"
+            cd ${start_dir}
+            return ${count}
+        fi
+    done
+    current_dir=$(pwd -P)
+    echo "${current_dir}/${file}"
+    cd ${start_dir}
+}
+
+setup_local_files() {
+    [ ! -e .git ] && echo "Sorry this is not a git repo" && exit 1
+    local mod_count=0
+    for dot_file in $(.bash_local .emacs .emacs.d); do
+        echo -n "setting up $dot_file... "
+
+        #check if the file exists already
+        if [ "$(_readlinkf ${dot_file})" = "$(_readlinkf ${homedir}/${dot_file} | tail -n 1)" ]; then
+            echo "[OK] (nothing to do already linked)"
+        else
+            ((DEBUG|DRY_RUN)) && echo "[ -e ${homedir}/.${dot_file} ]  && mv -v ${homedir}/${dot_file}{,.bak}"
+            ((! DRY_RUN)) && [ -e ${homedir}/${dot_file} ] && mv -v ${homedir}/${dot_file}{,.bak}
+            ((DEBUG||DRY_RUN)) && echo "ln -s $(_readlinkf ${dot_file}) ${homedir}/${dot_file}"
+            if ((! DRY_RUN)); then
+                ((FORCE & DEBUG)) && echo "[ -L "${homedir}/${dot_file}" ] && [ "$(_readlinkf ${homedir}/${dot_file})" != "$(_readlinkf ${dot_file})" ] && unlink ${homedir}/${dot_file}"
+                ((FORCE)) && [ -L "${homedir}/${dot_file}" ] && [ "$(_readlinkf ${homedir}/${dot_file})" != "$(_readlinkf ${dot_file})" ] && unlink ${homedir}/${dot_file}
+                ln -s $(_readlinkf ${dot_file}) ${homedir}/${dot_file}
+                if [ $? != 0 ]; then echo "ERROR: problem linking ${dot_file}"; else echo " linked file... [OK] " && ((++mod_count)); fi
+            fi
+        fi
+    done
+    # A succesful run (returning 0) is when some work or change in state has occured from the installation
+    # If no work had to be done then it returns 1
+    # This allows for the capability to condition subsequent action based on the behavior of this function.
+    ((mod_count > 0)) && return 0 || return 1
+}
+
+revert_homedir() {
+    [ ! -e .git ] && echo "Sorry this is not a git repo" && exit 1
+    echo " Revert Not Yet Implemented"
+    return 0
+}
+
+_usage() {
+    printf "
+Usage:
+  > setup
+           --install - Runs the installation process [default]
+           --revert  - Uninstalls the system [not yet implemented]
+           --help|-h - Prints this help message
+           --debug   - Runs in debug mode (more output)
+           --dry-run - Will not perform operations but will print what would be done
+
+"
+    exit 0
+}
+
+main() {
+    while [ -n "$1" ]; do
+	case "$1" in
+	    --install)
+		shift
+                INSTALL=1
+		;;
+	    --revert)
+                shift
+                REVERT=1
+		;;
+	    --help|-h)
+		_usage
+		;;
+            --debug)
+                shift
+                DEBUG=1
+                ;;
+            --force)
+                shift
+                FORCE=1
+                ;;
+            --dry-run)
+                shift
+                DRY_RUN=1
+                ;;
+	    *)
+                echo "Unknown option $1"
+                exit 1
+	esac
+    done
+
+    ((DEBUG)) && echo "Debug mode on"
+    ((DRY_RUN)) && echo "Dry run mode on"
+
+    if ((REVERT)); then revert_homedir; exit $?; fi
+
+    #Functions that peform the installtion....
+    setup_Local_files $@ && echo "Done! Thanks!"
+}
+
+main $@
