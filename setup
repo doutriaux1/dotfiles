@@ -73,7 +73,8 @@ _readlinkf() {
 setup_local_files() {
     [ ! -e .git ] && echo "Sorry this is not a git repo" && exit 1
     local mod_count=0
-    for dot_file in $(.bash_local .emacs .emacs.d); do
+    local my_dot_files=(.bash_local .emacs .emacs.d)
+    for dot_file in ${my_dot_files[@]}; do
         echo -n "setting up $dot_file... "
 
         #check if the file exists already
@@ -155,7 +156,7 @@ main() {
     if ((REVERT)); then revert_homedir; exit $?; fi
 
     #Functions that peform the installtion....
-    setup_Local_files $@ && echo "Done! Thanks!"
+    setup_local_files $@ && echo "Done! Thanks!"
 }
 
 main $@
