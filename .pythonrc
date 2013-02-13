@@ -1,0 +1,11 @@
+import readline
+import rlcompleter
+readline.parse_and_bind("tab: complete")
+import sys,os
+import cdms2
+fnm = sys.prefix+'/sample_data/clt.nc'
+f=cdms2.open(fnm)
+s=f("clt")
+import cdutil
+cdutil.times.setTimeBoundsmonthly(s)
+import genutil

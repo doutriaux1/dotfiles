@@ -16,7 +16,7 @@
 #   A clean and easy way to setup your local file environment that is hassle free.
 #   We use lots of different machines... it makes it less painful
 #
-#   Sets up dotbash_local and emacs and emacs.d in your home directory
+#   Sets up .bash_local, .emacs, .pythonrc and .emacs.d in your home directory
 #
 #*****************************************************************
 # Copied from github.com:gavinmbell/bash_resources.git
@@ -73,7 +73,7 @@ _readlinkf() {
 setup_local_files() {
     [ ! -e .git ] && echo "Sorry this is not a git repo" && exit 1
     local mod_count=0
-    local my_dot_files=(.bash_local .emacs .emacs.d)
+    local my_dot_files=(.bash_local .emacs .emacs.d .pythonrc)
     for dot_file in ${my_dot_files[@]}; do
         echo -n "setting up $dot_file... "
 
