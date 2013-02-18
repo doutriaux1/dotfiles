@@ -9,3 +9,23 @@ s=f("clt")
 import cdutil
 cdutil.times.setTimeBoundsmonthly(s)
 import genutil
+fnm=sys.prefix+'/sample_data/clt.nc'
+fnmirr=sys.prefix+'/sample_data/sampleGenGrid3.nc'
+fnmcurv=sys.prefix+'/sample_data/sampleCurveGrid4.nc'
+import numpy
+import cdtime
+if sys.executable[-4:]=="cdat":
+  import vcs
+  from PyQt4 import QtCore, QtGui
+
+def Classes(obj,firsttime=True):
+   if firsttime:
+     obj=obj.__class__
+   res=set()
+   for c in obj.__bases__:
+     res.add(c)
+     res.update(Classes(c,False))
+   return res
+
+f=cdms2.open(fnm)
+s=f('clt')
