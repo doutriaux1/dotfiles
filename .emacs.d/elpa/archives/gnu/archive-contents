@@ -1,6 +1,6 @@
 (1
  (ack .
-      [(0 8)
+      [(0 9)
        nil "Interface to ack, a source code search tool" tar])
  (adaptive-wrap .
 		[(0 2)
@@ -8,9 +8,6 @@
  (all .
       [(1 0)
        nil "Edit all lines matching a given regexp" single])
- (ampc .
-       [(0 2)
-	nil "Asynchronous Music Player Controller" single])
  (auctex .
 	 [(11 86)
 	  nil "Integrated environment for *TeX*" tar])
@@ -54,7 +51,7 @@
 			[(1 1)
 			 nil "Parse and browse f90 interfaces" single])
  (ggtags .
-	 [(0 5)
+	 [(0 6)
 	  nil "GNU Global source code tagging system" single])
  (heap .
        [(0 3)
@@ -66,7 +63,7 @@
 	      [(1 0)
 	       nil "Major mode for Jgraph files" single])
  (js2-mode .
-	   [(1 1)
+	   [(20130217)
 	    ((emacs
 	      (24 1)))
 	    "Improved JavaScript editing mode" single])
@@ -107,7 +104,7 @@
 	 [(0 8)
 	  nil "OAuth 2.0 Authorization Protocol" single])
  (org .
-      [(20130204)
+      [(20130211)
        nil "Outline-based notes management and organizer" tar])
  (quarter-plane .
 		[(0 1)

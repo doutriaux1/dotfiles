@@ -51,14 +51,7 @@
   ;; If there is more than one, they won't work right.
  )
 ;;; Modification du load-path
-(setq load-path (cons "/Users/doutriaux1/emacs" load-path))
-
-;; cmake
-(require 'cmake-mode)
-(setq auto-mode-alist
-(append '(("CMakeLists\\.txt\\'" . cmake-mode)
-         ("\\.cmake\\'" . cmake-mode))
-         auto-mode-alist))
+(setq load-path (cons "/Users/doutriaux1/.emacs.d" load-path))
 
 ;; python mode stuff
 
@@ -76,3 +69,9 @@
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
+;; cmake
+(require 'cmake-mode)
+(setq auto-mode-alist
+(append '(("CMakeLists\\.txt\\'" . cmake-mode)
+         ("\\.cmake\\'" . cmake-mode))
+         auto-mode-alist))
