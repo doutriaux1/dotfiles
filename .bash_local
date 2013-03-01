@@ -17,3 +17,5 @@ PROMPT_COMMAND_HIST_INDEX_COLOR=${_GOLD}
 
 PS1=${PS1//\W/\w}
 
+alias ll='ls -lh'
+
