@@ -53,7 +53,6 @@
 ;;; Modification du load-path
 (setq load-path (cons (expand-file-name "~/.emacs.d") load-path))
 
-
 ;; In XEmacs syntax highlighting should be enabled automatically.  en GNU
 ;; Emacs you may have to add these lines to your ~/.emacs file:
     (global-font-lock-mode t)
@@ -80,6 +79,9 @@
 (append '(("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
          auto-mode-alist))
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 10037080b0a05e70ddf8838d9999e46d9fa164dc

@@ -1,5 +1,9 @@
-CDATBUILDS="/lgm/uvcdat"
+CDATBUILDS="/usr/local/uvcdat"
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
+
+PYTHONSTARTUP=${HOME}/.pythonrc
+
+
 setpy() {
  source ${CDATBUILDS}/$1/bin/setup_cdat.sh
 }
@@ -12,4 +16,6 @@ PROMPT_ADDRESS_COLOR=${_BLUE}
 PROMPT_COMMAND_HIST_INDEX_COLOR=${_GOLD}
 
 PS1=${PS1//\W/\w}
+
+alias ls='ls -h'
 

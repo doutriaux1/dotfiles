@@ -7,7 +7,7 @@ fnm = sys.prefix+'/sample_data/clt.nc'
 f=cdms2.open(fnm)
 s=f("clt")
 import cdutil
-cdutil.times.setTimeBoundsmonthly(s)
+cdutil.times.setTimeBoundsMonthly(s)
 import genutil
 fnm=sys.prefix+'/sample_data/clt.nc'
 fnmirr=sys.prefix+'/sample_data/sampleGenGrid3.nc'
