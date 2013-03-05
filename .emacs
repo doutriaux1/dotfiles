@@ -51,14 +51,21 @@
   ;; If there is more than one, they won't work right.
  )
 ;;; Modification du load-path
-(setq load-path (cons "/Users/doutriaux1/emacs" load-path))
+(setq load-path (cons (expand-file-name "~/.emacs.d") load-path))
 
-;; cmake
-(require 'cmake-mode)
-(setq auto-mode-alist
-(append '(("CMakeLists\\.txt\\'" . cmake-mode)
-         ("\\.cmake\\'" . cmake-mode))
-         auto-mode-alist))
+
+;; In XEmacs syntax highlighting should be enabled automatically.  en GNU
+;; Emacs you may have to add these lines to your ~/.emacs file:
+    (global-font-lock-mode t)
+    (setq font-lock-maximum-decoration t)
+
+;; Packages stuff
+
+(require 'package)
+(add-to-list 'package-archives
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
 
 ;; python mode stuff
 
@@ -67,12 +74,12 @@
                                        interpreter-mode-alist))
     (autoload 'python-mode "python-mode" "Python editing mode." t)
 
-;; In XEmacs syntax highlighting should be enabled automatically.  en GNU
-;; Emacs you may have to add these lines to your ~/.emacs file:
-    (global-font-lock-mode t)
-    (setq font-lock-maximum-decoration t)
-(require 'package)
-(add-to-list 'package-archives
-    '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
-(package-initialize)
+;; cmake
+(require 'cmake-mode)
+(setq auto-mode-alist
+(append '(("CMakeLists\\.txt\\'" . cmake-mode)
+         ("\\.cmake\\'" . cmake-mode))
+         auto-mode-alist))
+
+
+
