@@ -25,3 +25,4 @@ PS1=${PS1//\W/\w}
 
 alias ls='ls -h'
 
+export EDITOR='vi'
