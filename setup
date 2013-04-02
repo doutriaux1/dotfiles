@@ -73,7 +73,8 @@ _readlinkf() {
 setup_local_files() {
     [ ! -e .git ] && echo "Sorry this is not a git repo" && exit 1
     local mod_count=0
-    local my_dot_files=(.bash_local .emacs .emacs.d .pythonrc)
+    local my_dot_files=(.bash_local .emacs .emacs.d .pythonrc .vimrc .vim)
+    mkdir ${homedir}/.vim
     for dot_file in ${my_dot_files[@]}; do
         echo -n "setting up $dot_file... "
 
@@ -81,7 +82,7 @@ setup_local_files() {
         if [ "$(_readlinkf ${dot_file})" = "$(_readlinkf ${homedir}/${dot_file} | tail -n 1)" ]; then
             echo "[OK] (nothing to do already linked)"
         else
-            ((DEBUG|DRY_RUN)) && echo "[ -e ${homedir}/.${dot_file} ]  && mv -v ${homedir}/${dot_file}{,.bak}"
+            ((DEBUG|DRY_RUN)) && echo "[ -e ${homedir}/${dot_file} ]  && mv -v ${homedir}/${dot_file}{,.bak}"
             ((! DRY_RUN)) && [ -e ${homedir}/${dot_file} ] && mv -v ${homedir}/${dot_file}{,.bak}
             ((DEBUG||DRY_RUN)) && echo "ln -s $(_readlinkf ${dot_file}) ${homedir}/${dot_file}"
             if ((! DRY_RUN)); then

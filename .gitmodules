@@ -1,0 +1,3 @@
+[submodule "vim-colorschemes"]
+	path = vim-colorschemes
+	url = git://github.com/flazz/vim-colorschemes.git

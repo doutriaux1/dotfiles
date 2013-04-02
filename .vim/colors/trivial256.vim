@@ -1,0 +1,1 @@
+vim-colorschemes/colors/trivial256.vim
