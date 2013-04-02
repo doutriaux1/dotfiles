@@ -1,4 +1,10 @@
-CDATBUILDS="/usr/local/uvcdat"
+h=`hostname -s`
+if [ $h = 'meryem' ] || [ $h = 'sofia' ] ; then 
+  CDATBUILDS="/lgm/uvcdat"
+else
+  CDATBUILDS="/usr/local/uvcdat"
+fi
+
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
 
 PYTHONSTARTUP=${HOME}/.pythonrc
@@ -19,3 +25,8 @@ PS1=${PS1//\W/\w}
 
 alias ls='ls -h'
 
+export EDITOR='vi'
+export HISTCONTROL=erasedups
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000
+export TMOUT=0

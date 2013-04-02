@@ -79,9 +79,8 @@
 (append '(("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
          auto-mode-alist))
-<<<<<<< HEAD
+;; after copy Ctrl+c in X11 apps, you can paste by `yank' in emacs
+(setq x-select-enable-clipboard t)
 
-
-
-=======
->>>>>>> 10037080b0a05e70ddf8838d9999e46d9fa164dc
+;; after mouse selection in X11, you can paste by `yank' in emacs
+(setq x-select-enable-primary t)
