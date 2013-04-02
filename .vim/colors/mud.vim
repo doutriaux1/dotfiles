@@ -1,0 +1,1 @@
+../../vim-colorschemes/colors/mud.vim

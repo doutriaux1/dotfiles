@@ -1,0 +1,1 @@
+../../vim-colorschemes/colors/obsidian2.vim
