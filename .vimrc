@@ -1,5 +1,6 @@
-syntax on
-"colorscheme desert
-"colorschem python
 set mouse=a
 set nu
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
