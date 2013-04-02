@@ -1,1 +1,0 @@
-vim-colorschemes/colors/256-grayvim.vim

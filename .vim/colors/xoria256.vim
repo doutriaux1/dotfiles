@@ -1,1 +1,0 @@
-vim-colorschemes/colors/xoria256.vim

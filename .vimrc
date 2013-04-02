@@ -1,4 +1,4 @@
 syntax on
 "colorscheme desert
-colorscheme endel
+colorschem python
 set mouse=a

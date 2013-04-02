@@ -1,1 +1,0 @@
-vim-colorschemes/colors/rainbow_neon.vim

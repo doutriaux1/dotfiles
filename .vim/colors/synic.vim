@@ -1,1 +1,0 @@
-vim-colorschemes/colors/synic.vim

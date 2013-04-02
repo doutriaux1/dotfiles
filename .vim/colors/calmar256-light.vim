@@ -1,1 +1,0 @@
-vim-colorschemes/colors/calmar256-light.vim
