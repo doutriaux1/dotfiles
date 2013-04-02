@@ -1,1 +1,0 @@
-../../vim-colorschemes/colors/literal_tango.vim

@@ -1,1 +1,0 @@
-../../vim-colorschemes/colors/biogoo.vim

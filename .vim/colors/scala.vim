@@ -1,1 +1,0 @@
-../../vim-colorschemes/colors/scala.vim

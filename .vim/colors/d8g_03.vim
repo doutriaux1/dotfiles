@@ -1,1 +1,0 @@
-../../vim-colorschemes/colors/d8g_03.vim
