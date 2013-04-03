@@ -17,6 +17,7 @@ setpy() {
 alias gst='git status'
 alias pb="python setup.py install"
 unalias emacs
+alias vi="vim"
 
 PROMPT_ADDRESS_COLOR=${_BLUE}
 PROMPT_COMMAND_HIST_INDEX_COLOR=${_GOLD}
