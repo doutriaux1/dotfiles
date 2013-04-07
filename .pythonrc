@@ -17,6 +17,7 @@ import cdtime
 if sys.executable[-4:]=="cdat":
   import vcs
   from PyQt4 import QtCore, QtGui
+  x=vcs.init()
 
 def Classes(obj,firsttime=True):
    if firsttime:
