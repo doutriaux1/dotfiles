@@ -15,3 +15,18 @@ set tabstop=8
 set softtabstop=4
 set shiftwidth=4
 set autoindent
+set clipboard=unnamed
+set hidden
+set viminfo='25,\"50,n~/.viminfo
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+
