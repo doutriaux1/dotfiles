@@ -26,7 +26,7 @@ PS1=${PS1//\W/\w}
 
 alias ls='ls -h'
 
-export EDITOR='vi'
+export EDITOR='vim'
 export HISTCONTROL=erasedups
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
@@ -35,3 +35,6 @@ export TMOUT=0
 stty ixany
 stty ixoff -ixon
 
+unset DYLD_LIBRARY_PATH
+unset LD_LIBRARY_PATH
+unset PYTHONPATH
