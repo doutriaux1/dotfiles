@@ -1,5 +1,5 @@
 h=`hostname -s`
-if [ $h = 'meryem' ] || [ $h = 'sofia' ] ; then 
+if [ $h = 'meryem' ] || [ $h = 'sofia' ] || [ $h == 'MacPro' ] || [ $h = 'CharlesMacBookAir' ] ; then 
   CDATBUILDS="/lgm/uvcdat"
 else
   CDATBUILDS="/usr/local/uvcdat"
