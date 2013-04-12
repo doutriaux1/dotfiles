@@ -18,6 +18,7 @@ set autoindent
 set clipboard=unnamed
 set hidden
 set viminfo='25,\"50,n~/.viminfo
+set formatoptions-=tc
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
