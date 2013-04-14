@@ -38,3 +38,5 @@ stty ixoff -ixon
 unset DYLD_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+
+export CDPATH=.:..
