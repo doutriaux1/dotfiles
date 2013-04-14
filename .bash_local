@@ -43,4 +43,4 @@ unset PYTHONPATH
 
 export PATH=${PATH}:/usr/local/mysql/bin
 
-export CDPATH=.:..
+export CDPATH=.:..:/git
