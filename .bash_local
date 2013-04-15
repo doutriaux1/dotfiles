@@ -42,3 +42,5 @@ unset LD_LIBRARY_PATH
 unset PYTHONPATH
 
 export PATH=${PATH}:/usr/local/mysql/bin
+
+export CDPATH=.:..
