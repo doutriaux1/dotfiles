@@ -25,6 +25,8 @@ PROMPT_COMMAND_HIST_INDEX_COLOR=${_GOLD}
 PS1=${PS1//\W/\w}
 
 alias ls='ls -h'
+alias lc='export LC_TYPE=en_US'
+alias lcu='export LC_TYPE=en_US.UTF-8'
 
 export EDITOR='vim'
 export HISTCONTROL=erasedups
@@ -38,3 +40,5 @@ stty ixoff -ixon
 unset DYLD_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+
+export PATH=${PATH}:/usr/local/mysql/bin
