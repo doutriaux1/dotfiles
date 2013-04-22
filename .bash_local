@@ -25,8 +25,8 @@ PROMPT_COMMAND_HIST_INDEX_COLOR=${_GOLD}
 PS1=${PS1//\W/\w}
 
 alias ls='ls -h'
-alias lc='export LC_TYPE=en_US'
-alias lcu='export LC_TYPE=en_US.UTF-8'
+alias lc='export LC_CTYPE=en_US'
+alias lcu='export LC_CTYPE=en_US.UTF-8'
 
 export EDITOR='vim'
 export HISTCONTROL=erasedups
@@ -38,9 +38,36 @@ stty ixany
 stty ixoff -ixon
 
 unset DYLD_LIBRARY_PATH
+unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
 
 export PATH=${PATH}:/usr/local/mysql/bin
 
 export CDPATH=.:..:/git
+unset TOMCAT_HOME
+unset CATALINA_HOME
+unset PROJECT
+unset TRASH
+unset OLDPWD
+unset XTERM_SHELL
+unset JRUBY_HOME
+unset COMMAND_MODE
+unset JAVA_HOME
+unset DEVTOOLS
+unset DBUS_LAUNCHD_SESSION_BUS_SOCKET
+unset JAXB_HOME
+unset CLASS_ROOT
+unset XTERM_LOCAL
+unset XTERM_VERSION
+unset M2_HOME
+unset GROOVY_HOME
+unset CLASSPATH
+unset ARCHIVE
+unset STASH
+unset X11_PREFS_DOMAIN
+unset ESGF_SITE_ROOT
+unset __CF_USER_TEXT_ENCODING
+unset R_HOME
+unset JAR_PATH
+unset XTERM_LOCALE
