@@ -33,3 +33,5 @@ def Classes(obj,firsttime=True):
 f=cdms2.open(fnm)
 s=f('clt')
 t=s.getTime()
+tc=t.asComponentTime()
+
