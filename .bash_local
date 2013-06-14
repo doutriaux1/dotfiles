@@ -1,9 +1,16 @@
 h=`hostname -s`
-if [ $h = 'meryem' ] || [ $h = 'sofia' ] || [ $h == 'MacPro' ] || [ $h = 'CharlesMacBookAir' ] ; then 
-  CDATBUILDS="/lgm/uvcdat"
-else
-  CDATBUILDS="/usr/local/uvcdat"
-fi
+case "$h" in
+  vpn*)
+     CDATBUILDS="/lgm/uvcdat";;
+  meryem)
+     CDATBUILDS="lgm/uvcdat";;
+  sofia)
+     CDATBUILDS="/lgm/uvcdat";;
+  *Mac*)
+     CDATBUILDS="/lgm/uvcdat";;
+  *)
+     CDATBUILDS="/usr/local/uvcdat";;
+esac
 
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
 
