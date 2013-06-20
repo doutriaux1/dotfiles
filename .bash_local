@@ -51,7 +51,7 @@ unset PYTHONPATH
 
 export PATH=${PATH}:/usr/local/mysql/bin
 
-export CDPATH=.:..:/git
+export CDPATH=.:..
 unset TOMCAT_HOME
 unset CATALINA_HOME
 unset PROJECT
