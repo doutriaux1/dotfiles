@@ -3,7 +3,7 @@ case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
   meryem)
-     CDATBUILDS="lgm/uvcdat";;
+     CDATBUILDS="/lgm/uvcdat";;
   sofia)
      CDATBUILDS="/lgm/uvcdat";;
   *Mac*)

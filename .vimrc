@@ -19,6 +19,7 @@ set clipboard=unnamed
 set hidden
 set viminfo='25,\"50,n~/.viminfo
 set formatoptions-=tc
+set backupskip=/tmp/*,/private/tmp/*
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
