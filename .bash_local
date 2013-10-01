@@ -18,7 +18,7 @@ PYTHONSTARTUP=${HOME}/.pythonrc
 
 
 setpy() {
- source ${CDATBUILDS}/$1/bin/setup_cdat.sh
+ source ${CDATBUILDS}/$1/bin/setup_runtime.sh
 }
 
 alias gst='git status'
