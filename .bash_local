@@ -15,7 +15,7 @@ esac
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
 
 ## Git 
-alias gcl='${HOME}/bin/git-clean-local.py'
+alias gcl='${HOME}/bin/git-clean-local.pyi -s -V'
 alias gst='git status'
 
 # Python
