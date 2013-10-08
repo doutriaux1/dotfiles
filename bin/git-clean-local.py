@@ -31,6 +31,7 @@ for r in p.stdout.read().split():
         if l.find("Remote branches")>-1:
             break
     rb = []
+    j=0
     for j,l in enumerate(lines[i+1:]):
         if l.find("Local branches")>-1:
             break
