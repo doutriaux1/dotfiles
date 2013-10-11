@@ -1,4 +1,5 @@
 h=`hostname -s`
+ANDROIDPATH=""
 case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
@@ -7,7 +8,8 @@ case "$h" in
   sofia)
      CDATBUILDS="/lgm/uvcdat";;
   *Mac*)
-     CDATBUILDS="/lgm/uvcdat";;
+     CDATBUILDS="/lgm/uvcdat"
+     ANDROIDPATH=${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/tools:${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/platform-tools;;
   *)
      CDATBUILDS="/usr/local/uvcdat";;
 esac
@@ -49,7 +51,7 @@ unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
 
-export PATH=${PATH}:/usr/local/mysql/bin
+export PATH=${ANDROIDPATH}:${PATH}:/usr/local/mysql/bin
 
 export CDPATH=.:..
 unset TOMCAT_HOME
