@@ -5,6 +5,8 @@ case "$h" in
      CDATBUILDS="/lgm/uvcdat";;
   meryem)
      CDATBUILDS="/lgm/uvcdat";;
+  omar)
+     CDATBUILDS="/lgm/uvcdat";;
   sofia)
      CDATBUILDS="/lgm/uvcdat";;
   *Mac*)
@@ -93,3 +95,5 @@ unset __CF_USER_TEXT_ENCODING
 unset R_HOME
 unset JAR_PATH
 unset XTERM_LOCALE
+unset XTERM
+
