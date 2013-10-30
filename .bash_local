@@ -30,8 +30,18 @@ unset DYLD_LIBRARY_PATH
 unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+
+mostrecentdir() {
+    echo $(basename `ls -lrtd /$1/*/ | awk '{print $9}' | tail -n1  `)
+}
+
 setpy() {
- source ${CDATBUILDS}/$1/bin/setup_runtime.sh
+ if [ $# == 0 ]; then
+   pth=$(mostrecentdir ${CDATBUILDS})
+ else
+   pth=$1
+ fi
+ source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
 }
 
 # Editors
