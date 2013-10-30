@@ -1,13 +1,17 @@
 h=`hostname -s`
+ANDROIDPATH=""
 case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
   meryem)
      CDATBUILDS="/lgm/uvcdat";;
+  omar)
+     CDATBUILDS="/lgm/uvcdat";;
   sofia)
      CDATBUILDS="/lgm/uvcdat";;
   *Mac*)
-     CDATBUILDS="/lgm/uvcdat";;
+     CDATBUILDS="/lgm/uvcdat"
+     ANDROIDPATH=${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/tools:${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/platform-tools;;
   *)
      CDATBUILDS="/usr/local/uvcdat";;
 esac
@@ -55,7 +59,13 @@ export TMOUT=0
 stty ixany
 stty ixoff -ixon
 
-export PATH=${PATH}:${HOME}/bin:/usr/local/mysql/bin
+unset DYLD_LIBRARY_PATH
+unset DYLD_FALLBACK_LIBRARY_PATH
+unset LD_LIBRARY_PATH
+unset PYTHONPATH
+
+export PATH=${ANDROIDPATH}:${PATH}:/usr/local/mysql/bin
+export PATH=${ANDROIDPATH}:${PATH}:${HOME}/bin:/usr/local/mysql/bin
 
 # Stuff I don't want from Gavin's repo
 export CDPATH=.:..
@@ -85,3 +95,5 @@ unset __CF_USER_TEXT_ENCODING
 unset R_HOME
 unset JAR_PATH
 unset XTERM_LOCALE
+unset XTERM
+
