@@ -46,6 +46,7 @@ setpy() {
  else
    pth=$1
  fi
+ echo "Using "${pth}" Python"
  source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
 }
 
