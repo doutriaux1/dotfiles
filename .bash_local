@@ -18,6 +18,11 @@ esac
 
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
 
+## Accessing remote machines
+alias xt=xtightvncviewer
+alias xtm="xtightvncviewer meryem"
+alias xts="xtightvncviewer sofia"
+
 ## Git 
 alias gcl='${HOME}/bin/git-clean-local.pyi -s -V'
 alias gst='git status'
