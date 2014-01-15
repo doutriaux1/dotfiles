@@ -1,4 +1,3 @@
-set mouse=a
 set nu
 set ff=unix
 execute pathogen#infect()
@@ -9,7 +8,7 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 map T :TaskList<CR>
-map P :TlistToggle<CR>
+map PP :TlistToggle<CR>
 set expandtab
 set textwidth=79
 set tabstop=8
