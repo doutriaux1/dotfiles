@@ -1,4 +1,5 @@
 set nu
+set ff=unix
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
