@@ -1,4 +1,4 @@
-set nu
+set nonu
 set ff=unix
 execute pathogen#infect()
 syntax on
@@ -15,6 +15,7 @@ set tabstop=4
 set softtabstop=2
 set shiftwidth=2
 set autoindent
+autocmd BufEnter * silent! lcd %:p:h
 set clipboard=unnamed
 set hidden
 set viminfo='25,\"50,n~/.viminfo
