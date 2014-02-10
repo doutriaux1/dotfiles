@@ -1,4 +1,4 @@
-h=`hostname -s`
+h1=`hostname -s`
 ANDROIDPATH=""
 case "$h" in
   vpn*)
@@ -29,7 +29,7 @@ alias gst='git status'
 
 # Python
 alias pb="python setup.py install"
-alias p = "ipython"
+alias p="ipython"
 PYTHONSTARTUP=${HOME}/.pythonrc
 ## Make sure my python paths do not get mangled
 unset DYLD_LIBRARY_PATH
