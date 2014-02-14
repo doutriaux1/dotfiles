@@ -7,6 +7,8 @@ case "$h" in
      CDATBUILDS="/lgm/uvcdat";;
   omar)
      CDATBUILDS="/lgm/uvcdat";;
+  *il-*)
+     CDATBUILDS="/lgm/uvcdat";;
   sofia)
      CDATBUILDS="/lgm/uvcdat";;
   *Mac*)
