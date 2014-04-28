@@ -128,4 +128,9 @@ unset R_HOME
 unset JAR_PATH
 unset XTERM_LOCALE
 unset XTERM
+if [ "${GREP_COLORS}" == "" ]
+ then
+  export GREP_COLORS=${GREP_COLOR}
+fi
 
+unset GREP_COLOR
