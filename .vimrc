@@ -14,7 +14,7 @@ set textwidth=79
 set tabstop=4
 set softtabstop=2
 set shiftwidth=2
-"set autoindent
+set autoindent
 autocmd BufEnter * silent! lcd %:p:h
 set clipboard=unnamed
 set hidden

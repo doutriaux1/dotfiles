@@ -15,6 +15,12 @@ case "$h" in
   *)
      CDATBUILDS="/usr/local/uvcdat";;
 esac
+case `uname` in
+  Darwin*)
+    ;;
+  *)
+    xmodmap -e "keycode 66 = Shift_L";;
+esac
 
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
 
