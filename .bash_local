@@ -17,6 +17,12 @@ case "$h" in
   *)
      CDATBUILDS="/usr/local/uvcdat";;
 esac
+case `uname` in
+  Darwin*)
+    ;;
+  *)
+    xmodmap -e "keycode 66 = Shift_L";;
+esac
 
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
 
@@ -28,7 +34,21 @@ alias xts="xtightvncviewer sofia"
 ## Git 
 alias gcl='${HOME}/bin/git-clean-local.pyi -s -V'
 alias gst='git status'
-
+gcb() {
+   echo "RECEIVED: $# args"
+   if  [ $# == 1 ]; then
+     remote="origin"
+   else
+     remote="$2"
+   fi
+   echo "SEt remote to: ${remote}"
+   echo "Creating branch $1 on remote ${remote}"
+   git checkout -b $1
+   git push -u ${remote} HEAD:$1
+}
+gcbd() {
+  gcb $1 devel
+}
 # Python
 alias pb="python setup.py install"
 alias p="ipython"
@@ -42,6 +62,7 @@ unset PYTHONPATH
 mostrecentdir() {
     echo $(basename `ls -lrtd /$1/*/ | awk '{print $9}' | tail -n1  `)
 }
+
 
 setpy() {
  if [ $# == 0 ]; then
@@ -115,4 +136,9 @@ unset R_HOME
 unset JAR_PATH
 unset XTERM_LOCALE
 unset XTERM
+if [ "${GREP_COLORS}" == "" ]
+ then
+  export GREP_COLORS=${GREP_COLOR}
+fi
 
+unset GREP_COLOR
