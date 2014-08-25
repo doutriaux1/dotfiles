@@ -36,6 +36,7 @@ unset DYLD_LIBRARY_PATH
 unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+unset UVCDAT_SETUP_PATH
 
 mostrecentdir() {
     echo $(basename `ls -lrtd /$1/*/ | awk '{print $9}' | tail -n1  `)
@@ -47,6 +48,7 @@ setpy() {
  else
    pth=$1
  fi
+ unset UVCDAT_SETUP_PATH
  echo "Using "${pth}" Python"
  source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
 }
@@ -80,6 +82,7 @@ unset DYLD_LIBRARY_PATH
 unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+unset UVCDAT_SETUP_PATH
 
 export PATH=${ANDROIDPATH}:${PATH}:/usr/local/mysql/bin
 export PATH=${ANDROIDPATH}:${PATH}:${HOME}/bin:/usr/local/mysql/bin
