@@ -3,6 +3,8 @@ ANDROIDPATH=""
 case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
+  maryam)
+     CDATBUILDS="/lgm/uvcdat";;
   meryem)
      CDATBUILDS="/lgm/uvcdat";;
   omar)
@@ -21,7 +23,7 @@ case `uname` in
   Darwin*)
     ;;
   *)
-    xmodmap -e "keycode 66 = Shift_L";;
+    #xmodmap -e "keycode 66 = Shift_L";;
 esac
 
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
@@ -58,18 +60,22 @@ unset DYLD_LIBRARY_PATH
 unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+unset UVCDAT_SETUP_PATH
 
 mostrecentdir() {
     echo $(basename `ls -lrtd /$1/*/ | awk '{print $9}' | tail -n1  `)
 }
 
-
+smv() { 
+   rsync -az --remove-source-files "$@";
+   }
 setpy() {
  if [ $# == 0 ]; then
    pth=$(mostrecentdir ${CDATBUILDS})
  else
    pth=$1
  fi
+ unset UVCDAT_SETUP_PATH
  echo "Using "${pth}" Python"
  source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
 }
@@ -103,6 +109,7 @@ unset DYLD_LIBRARY_PATH
 unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+unset UVCDAT_SETUP_PATH
 
 export PATH=${ANDROIDPATH}:${PATH}:/usr/local/mysql/bin
 export PATH=${ANDROIDPATH}:${PATH}:${HOME}/bin:/usr/local/mysql/bin
