@@ -3,6 +3,8 @@ ANDROIDPATH=""
 case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
+  maryam)
+     CDATBUILDS="/lgm/uvcdat";;
   meryem)
      CDATBUILDS="/lgm/uvcdat";;
   omar)
