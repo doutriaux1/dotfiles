@@ -23,7 +23,7 @@ case `uname` in
   Darwin*)
     ;;
   *)
-    xmodmap -e "keycode 66 = Shift_L";;
+    #xmodmap -e "keycode 66 = Shift_L";;
 esac
 
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
@@ -65,7 +65,9 @@ mostrecentdir() {
     echo $(basename `ls -lrtd /$1/*/ | awk '{print $9}' | tail -n1  `)
 }
 
-
+smv() { 
+   rsync -az --remove-source-files "$@";
+   }
 setpy() {
  if [ $# == 0 ]; then
    pth=$(mostrecentdir ${CDATBUILDS})

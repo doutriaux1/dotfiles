@@ -3,6 +3,12 @@ import rlcompleter
 readline.parse_and_bind("tab: complete")
 import sys,os
 import vtk
+renWin = vtk.vtkRenderWindow()
+ren = vtk.vtkRenderer()
+renWin.AddRenderer(ren)
+a = vtk.vtkActor()
+m = vtk.vtkPolyDataMapper()
+
 import cdms2
 fnm = sys.prefix+'/sample_data/clt.nc'
 f=cdms2.open(fnm)

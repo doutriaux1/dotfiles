@@ -23,6 +23,7 @@ set hidden
 set viminfo='25,\"50,n~/.viminfo
 set formatoptions-=tc
 set backupskip=/tmp/*,/private/tmp/*
+set smartcase
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
