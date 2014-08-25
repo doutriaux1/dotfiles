@@ -9,8 +9,8 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-#map T :TaskList<CR>
-#map PP :TlistToggle<CR>
+map T :TaskList<CR>
+map PP :TlistToggle<CR>
 set expandtab
 set textwidth=79
 set tabstop=4
