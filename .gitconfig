@@ -1,0 +1,12 @@
+
+[alias]
+  dry2 = "!f() { grep -q 'changed in both' < $(git merge-tree $(git merge-base FETCH_HEAD $1) $1 FETCH_HEAD) && echo 'Merge conflict detected' || echo 'Merged cleanly'; }; f"
+
+  dry = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
+
+[push]
+	default = current
+[user]
+	name = Charles Doutriaux
+	email = doutriaux1@llnl.gov
+
