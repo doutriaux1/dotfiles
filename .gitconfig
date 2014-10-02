@@ -3,6 +3,9 @@
   dry2 = "!f() { grep -q 'changed in both' < $(git merge-tree $(git merge-base FETCH_HEAD $1) $1 FETCH_HEAD) && echo 'Merge conflict detected' || echo 'Merged cleanly'; }; f"
 
   dry = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
+  rshw = remote show
+  rprn = remote prune
+  pshdev = push -u dev HEAD:master
 
 [push]
 	default = current
@@ -10,3 +13,5 @@
 	name = Charles Doutriaux
 	email = doutriaux1@llnl.gov
 
+[url "git://uv-cdat.llnl.gov/windfield.git"]
+	insteadof = http://uv-cdat.llnl.gov/git/windfield.git
