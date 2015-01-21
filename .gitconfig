@@ -14,4 +14,16 @@
 	email = doutriaux1@llnl.gov
 
 [url "git://uv-cdat.llnl.gov/windfield.git"]
+[color]
+	ui = auto
+[url "http://github.com/ajdawson/eof2.git"]
+[url "http://github.com/ajdawson/eofs.git"]
+[url "http://github.com/UV-CDAT/scimake.git"]
+[url "http://github.com/ajdawson/windspharm.git"]
+[url "git://uv-cdat.llnl.gov/windfield.git"]
+[url "http://github.com/ajdawson/eof2.git"]
+[url "http://github.com/ajdawson/eofs.git"]
+[url "http://github.com/UV-CDAT/scimake.git"]
+[url "http://github.com/ajdawson/windspharm.git"]
+[url "git://uv-cdat.llnl.gov/windfield.git"]
 	insteadof = http://uv-cdat.llnl.gov/git/windfield.git

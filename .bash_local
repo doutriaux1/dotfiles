@@ -36,6 +36,12 @@ alias xts="xtightvncviewer sofia"
 ## Git 
 alias gcl='${HOME}/bin/git-clean-local.pyi -s -V'
 alias gst='git status'
+
+notrailing() {
+  echo "Removing white spaces at end of lines for: $1"
+  find . -name $1 -print0  | xargs -r0 sed -e 's/[[:blank:]]\+$//' -i
+}
+
 gcb() {
    echo "RECEIVED: $# args"
    if  [ $# == 1 ]; then
@@ -76,8 +82,13 @@ setpy() {
    pth=$1
  fi
  unset UVCDAT_SETUP_PATH
+ unset OPAL_PREFIX
  echo "Using "${pth}" Python"
  source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
+}
+
+addline() {
+sed -i.bak -n 'H;${x;s/x=vcs.init()\n/x=vcs.init()\nx.drawlogooff()\n/;p;}' $1
 }
 
 # Editors
@@ -149,3 +160,4 @@ if [ "${GREP_COLORS}" == "" ]
 fi
 
 unset GREP_COLOR
+unset OPAL_PREFIX
