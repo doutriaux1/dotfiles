@@ -13,6 +13,8 @@ case "$h" in
      CDATBUILDS="/lgm/uvcdat";;
   sofia)
      CDATBUILDS="/lgm/uvcdat";;
+  cab*)
+     CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default";;
   *Mac*)
      CDATBUILDS="/lgm/uvcdat"
      ANDROIDPATH=${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/tools:${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/platform-tools;;
