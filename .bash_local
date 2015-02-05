@@ -12,6 +12,8 @@ case "$h" in
   *Mac*)
      CDATBUILDS="/lgm/uvcdat"
      ANDROIDPATH=${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/tools:${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/platform-tools;;
+  *rhea-lo*)
+     CDATBUILDS="/lustre/atlas/world-shared/csc121/uvcdat";;
   *)
      CDATBUILDS="/usr/local/uvcdat";;
 esac
