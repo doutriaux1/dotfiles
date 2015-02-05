@@ -3,12 +3,18 @@ ANDROIDPATH=""
 case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
+  maryam)
+     CDATBUILDS="/lgm/uvcdat";;
   meryem)
      CDATBUILDS="/lgm/uvcdat";;
   omar)
      CDATBUILDS="/lgm/uvcdat";;
+  *il-*)
+     CDATBUILDS="/lgm/uvcdat";;
   sofia)
      CDATBUILDS="/lgm/uvcdat";;
+  cab*)
+     CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default";;
   *Mac*)
      CDATBUILDS="/lgm/uvcdat"
      ANDROIDPATH=${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/tools:${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/platform-tools;;
@@ -16,6 +22,12 @@ case "$h" in
      CDATBUILDS="/lustre/atlas/world-shared/csc121/uvcdat";;
   *)
      CDATBUILDS="/usr/local/uvcdat";;
+esac
+case `uname` in
+  Darwin*)
+    ;;
+  *)
+    #xmodmap -e "keycode 66 = Shift_L";;
 esac
 
 fonts=( doom banner big bulbhead digital epic larry3d ogre puffy pyramid small smkeyboard  )
@@ -29,6 +41,26 @@ alias xts="xtightvncviewer sofia"
 alias gcl='${HOME}/bin/git-clean-local.pyi -s -V'
 alias gst='git status'
 
+notrailing() {
+  echo "Removing white spaces at end of lines for: $1"
+  find . -name $1 -print0  | xargs -r0 sed -e 's/[[:blank:]]\+$//' -i
+}
+
+gcb() {
+   echo "RECEIVED: $# args"
+   if  [ $# == 1 ]; then
+     remote="origin"
+   else
+     remote="$2"
+   fi
+   echo "SEt remote to: ${remote}"
+   echo "Creating branch $1 on remote ${remote}"
+   git checkout -b $1
+   git push -u ${remote} HEAD:$1
+}
+gcbd() {
+  gcb $1 devel
+}
 # Python
 alias pb="python setup.py install"
 alias p="ipython"
@@ -38,19 +70,29 @@ unset DYLD_LIBRARY_PATH
 unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+unset UVCDAT_SETUP_PATH
 
 mostrecentdir() {
     echo $(basename `ls -lrtd /$1/*/ | awk '{print $9}' | tail -n1  `)
 }
 
+smv() { 
+   rsync -az --remove-source-files "$@";
+   }
 setpy() {
  if [ $# == 0 ]; then
    pth=$(mostrecentdir ${CDATBUILDS})
  else
    pth=$1
  fi
+ unset UVCDAT_SETUP_PATH
+ unset OPAL_PREFIX
  echo "Using "${pth}" Python"
  source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
+}
+
+addline() {
+sed -i.bak -n 'H;${x;s/x=vcs.init()\n/x=vcs.init()\nx.drawlogooff()\n/;p;}' $1
 }
 
 # Editors
@@ -82,6 +124,7 @@ unset DYLD_LIBRARY_PATH
 unset DYLD_FALLBACK_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PYTHONPATH
+unset UVCDAT_SETUP_PATH
 
 export PATH=${ANDROIDPATH}:${PATH}:/usr/local/mysql/bin
 export PATH=${ANDROIDPATH}:${PATH}:${HOME}/bin:/usr/local/mysql/bin
@@ -115,4 +158,10 @@ unset R_HOME
 unset JAR_PATH
 unset XTERM_LOCALE
 unset XTERM
+if [ "${GREP_COLORS}" == "" ]
+ then
+  export GREP_COLORS=${GREP_COLOR}
+fi
 
+unset GREP_COLOR
+unset OPAL_PREFIX
