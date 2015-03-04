@@ -91,6 +91,11 @@ setpy() {
  source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
 }
 
+spb() {
+  good_python=`which python`
+  sudo ${good_python} setup.py install
+}
+
 addline() {
 sed -i.bak -n 'H;${x;s/x=vcs.init()\n/x=vcs.init()\nx.drawlogooff()\n/;p;}' $1
 }
