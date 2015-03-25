@@ -93,6 +93,29 @@ setpy() {
  source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
 }
 
+iP() {
+  if [ $# == 0 ]; then
+     PKG=vcs
+  else
+     PKG=$1
+  fi
+  if [ $# == 2 ]; then
+     CMD=spb
+  else
+     CMD='python setup.py install'
+  fi
+  where=$(pwd)
+  cd $(dirname $(dirname $(readlink ${HOME}/.bash_local)))
+  cd uvcdat/Packages/${PKG}
+  ${CMD}
+  cd ${where}
+}
+
+spb() {
+  good_python=`which python`
+  sudo ${good_python} setup.py install
+}
+
 addline() {
 sed -i.bak -n 'H;${x;s/x=vcs.init()\n/x=vcs.init()\nx.drawlogooff()\n/;p;}' $1
 }
