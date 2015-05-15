@@ -5,13 +5,23 @@ set modeline
 "loads plugins
 filetype off
 call pathogen#incubate()
+"call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 syntax on
 filetype on
 filetype plugin indent on
+"
 "code folding
 set foldmethod=indent
 set foldlevel=99
+
+"Window SPlits
+"Vertical Split : Ctrl+w + v
+"Horizontal Split: Ctrl+w + s
+"Close current windows: Ctrl+w + q
+
+" PyFlake
+let g:pyflakes_use_quickfix = 0
 
 " maps moving window directly avoid ctrl+w+key
 map <c-j> <c-w>j
@@ -20,10 +30,13 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 " TODOS
-"map <leader>t <Plug>Tasklist
+map <leader>td <Plug>Tasklist
 
 " PEP8
 let g:pep8_map='<leader>8'
+
+" Revision History
+map <leader>g :GundoToggle<CR>
 
 "tab completion
 au FileType python set omnifunc=pythoncomplete#Complete
@@ -43,8 +56,8 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-"map T :TaskList<CR>
-"map PP :TlistToggle<CR>
+map T :TaskList<CR>
+map PP :TlistToggle<CR>
 set expandtab
 set textwidth=79
 set tabstop=4
