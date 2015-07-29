@@ -20,6 +20,8 @@ case "$h" in
      ANDROIDPATH=${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/tools:${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/platform-tools;;
   *rhea-lo*)
      CDATBUILDS="/lustre/atlas/world-shared/csc121/uvcdat";;
+  sierra*)
+     CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default";;
   *)
      CDATBUILDS="/usr/local/uvcdat";;
 esac
