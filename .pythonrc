@@ -1,7 +1,8 @@
 import readline
-import rlcompleter
+# import rlcompleter
 readline.parse_and_bind("tab: complete")
-import sys,os
+import sys
+import os
 import vtk
 renWin = vtk.vtkRenderWindow()
 ren = vtk.vtkRenderer()
@@ -10,34 +11,39 @@ a = vtk.vtkActor()
 m = vtk.vtkPolyDataMapper()
 
 import cdms2
-fnm = sys.prefix+'/sample_data/clt.nc'
-f=cdms2.open(fnm)
-s=f("clt")
+try:
+    import cdat_info
+    pth = cdat_info.get_sampledata_path()
+except:
+    pth = sys.prefix
+fnm = os.path.join(pth, 'clt.nc')
+fnmirr = os.path.join(pth, 'sampleGenGrid3.nc')
+fnmcurv = os.path.join(pth, 'sampleCurveGrid4.nc')
+f = cdms2.open(fnm)
+s = f("clt")
 import cdutil
 cdutil.times.setTimeBoundsMonthly(s)
-import genutil
-fnm=sys.prefix+'/sample_data/clt.nc'
-fnmirr=sys.prefix+'/sample_data/sampleGenGrid3.nc'
-fnmcurv=sys.prefix+'/sample_data/sampleCurveGrid4.nc'
-import numpy
-import cdtime
+import genutil  # noqa`
+
+import numpy  # noqa
+import cdtime  # noqa
 import vcs
-#from PyQt4 import QtCore, QtGui
-x=vcs.init()
-iso=x.createisofill()
-T=x.createtemplate()
+# from PyQt4 import QtCore, QtGui
+x = vcs.init()
+iso = x.createisofill()
+T = x.createtemplate()
 
-def Classes(obj,firsttime=True):
-   if firsttime:
-     obj=obj.__class__
-   res=set()
-   for c in obj.__bases__:
-     res.add(c)
-     res.update(Classes(c,False))
-   return res
 
-f=cdms2.open(fnm)
-s=f('clt')
-t=s.getTime()
-tc=t.asComponentTime()
+def Classes(obj, firsttime=True):
+    if firsttime:
+        obj = obj.__class__
+    res = set()
+    for c in obj.__bases__:
+        res.add(c)
+        res.update(Classes(c, False))
+    return res
 
+f = cdms2.open(fnm)
+s = f('clt')
+t = s.getTime()
+tc = t.asComponentTime()
