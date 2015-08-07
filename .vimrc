@@ -61,8 +61,8 @@ map PP :TlistToggle<CR>
 set expandtab
 set textwidth=79
 set tabstop=4
-set softtabstop=2
-set shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
 set autoindent
 autocmd BufEnter * silent! lcd %:p:h
 set clipboard=unnamed
