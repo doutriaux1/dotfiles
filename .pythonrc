@@ -4,35 +4,42 @@ readline.parse_and_bind("tab: complete")
 import sys
 import os
 import vtk
-renWin = vtk.vtkRenderWindow()
-ren = vtk.vtkRenderer()
-renWin.AddRenderer(ren)
-a = vtk.vtkActor()
-m = vtk.vtkPolyDataMapper()
-
-import cdms2
-try:
-    import cdat_info
-    pth = cdat_info.get_sampledata_path()
-except:
-    pth = sys.prefix
-fnm = os.path.join(pth, 'clt.nc')
-fnmirr = os.path.join(pth, 'sampleGenGrid3.nc')
-fnmcurv = os.path.join(pth, 'sampleCurveGrid4.nc')
-f = cdms2.open(fnm)
-s = f("clt")
-import cdutil
-cdutil.times.setTimeBoundsMonthly(s)
-import genutil  # noqa`
-
-import numpy  # noqa
-import cdtime  # noqa
+import numpy
+import cdtime
 import vcs
-# from PyQt4 import QtCore, QtGui
-x = vcs.init()
-iso = x.createisofill()
-T = x.createtemplate()
+import cdms2
+import cdat_info
+import cdutil
+import genutil
 
+# VTK
+# renWin = vtk.vtkRenderWindow()
+# ren = vtk.vtkRenderer()
+# renWin.AddRenderer(ren)
+# a = vtk.vtkActor()
+# m = vtk.vtkPolyDataMapper()
+
+# Sample data
+try:
+  smpl_prfx = cdat_info.get_sampledata_path()
+except:
+  smpl_prfx = os.path.join(sys.prefix,"sample_data")
+
+fnm = os.path.join(smpl_prfx,'clt.nc')
+fnmirr=os.path.join(smpl_prfx,'sampleGenGrid3.nc')
+fnmcurv=os.path.join(smpl_prfx, 'sampleCurveGrid4.nc')
+
+f=cdms2.open(fnm)
+s=f("clt")
+cdutil.times.setTimeBoundsMonthly(s)
+t = s.getTime()
+tc = t.asComponentTime()
+
+# VCS
+#x=vcs.init(geometry={"width":800,"height":600})
+x=vcs.init()
+iso=x.createisofill()
+T=x.createtemplate()
 
 def Classes(obj, firsttime=True):
     if firsttime:
@@ -43,7 +50,3 @@ def Classes(obj, firsttime=True):
         res.update(Classes(c, False))
     return res
 
-f = cdms2.open(fnm)
-s = f('clt')
-t = s.getTime()
-tc = t.asComponentTime()
