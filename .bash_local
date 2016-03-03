@@ -122,8 +122,14 @@ sed -i.bak -n 'H;${x;s/x=vcs.init()\n/x=vcs.init()\nx.drawlogooff()\n/;p;}' $1
 
 # Editors
 unalias emacs
-alias vi="vim"
-export EDITOR='vim'
+case "$h" in
+  omar)
+     alias vi="vim";;
+  *)
+     alias vi="vim";;
+esac
+
+export EDITOR='vi'
 
 # ls aliases
 alias ls='ls -h'

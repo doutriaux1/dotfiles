@@ -10,19 +10,25 @@ a = vtk.vtkActor()
 m = vtk.vtkPolyDataMapper()
 
 import cdms2
-fnm = sys.prefix+'/sample_data/clt.nc'
+import cdat_info
+try:
+  smpl_prfx = cdat_info.get_sampledata_path()
+except:
+  smpl_prfx = os.path.join(sys.prefix,"sample_data")
+fnm = os.path.join(smpl_prfx,'clt.nc')
 f=cdms2.open(fnm)
 s=f("clt")
 import cdutil
 cdutil.times.setTimeBoundsMonthly(s)
 import genutil
-fnm=sys.prefix+'/sample_data/clt.nc'
-fnmirr=sys.prefix+'/sample_data/sampleGenGrid3.nc'
-fnmcurv=sys.prefix+'/sample_data/sampleCurveGrid4.nc'
+fnm=os.path.join(smpl_prfx,'clt.nc')
+fnmirr=os.path.join(smpl_prfx,'sampleGenGrid3.nc')
+fnmcurv=os.path.join(smpl_prfx, 'sampleCurveGrid4.nc')
 import numpy
 import cdtime
 import vcs
 #from PyQt4 import QtCore, QtGui
+#x=vcs.init(geometry={"width":800,"height":600})
 x=vcs.init()
 iso=x.createisofill()
 T=x.createtemplate()
