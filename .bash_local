@@ -42,6 +42,8 @@ alias xts="xtightvncviewer sofia"
 ## Git 
 alias gcl='${HOME}/bin/git-clean-local.pyi -s -V'
 alias gst='git status'
+alias gbr='for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort -r'
+alias gb='for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort'
 
 notrailing() {
   echo "Removing white spaces at end of lines for: $1"
