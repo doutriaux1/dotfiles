@@ -16,3 +16,6 @@
 	ui = auto
 [url "git://uv-cdat.llnl.gov/windfield.git"]
 	insteadof = http://uv-cdat.llnl.gov/git/windfield.git
+[http]
+    sslVerify = false
+
