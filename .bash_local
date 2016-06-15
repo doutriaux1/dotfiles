@@ -8,7 +8,12 @@ case "$h" in
   meryem)
      CDATBUILDS="/lgm/uvcdat";;
   omar)
-     CDATBUILDS="/lgm/uvcdat";;
+     CDATBUILDS="/lgm/uvcdat"
+     ANACONDA_HOME=${HOME}/miniconda2;;
+  oceanonly*)
+     ANACONDA_HOME=/usr/local/anaconda2;;
+  crunchy*)
+     ANACONDA_HOME=/usr/local/anaconda2;;
   *il-*)
      CDATBUILDS="/lgm/uvcdat";;
   sofia)
@@ -23,7 +28,8 @@ case "$h" in
   sierra*)
      CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default";;
   *)
-     CDATBUILDS="/usr/local/uvcdat";;
+     CDATBUILDS="/usr/local/uvcdat"
+     ANACONDA_HOME=${HOME}/anaconda2;;
 esac
 case `uname` in
   Darwin*)
@@ -81,7 +87,9 @@ mostrecentdir() {
 smv() { 
    rsync -az --remove-source-files "$@";
    }
-setpy() {
+
+# old setpy for cmake builds of uvcdat
+setpy_cmake() {
  if [ $# == 0 ]; then
    pth=$(mostrecentdir ${CDATBUILDS})
  else
@@ -91,6 +99,17 @@ setpy() {
  unset OPAL_PREFIX
  echo "Using "${pth}" Python"
  source ${CDATBUILDS}/${pth}/bin/setup_runtime.sh
+}
+
+# Newer setpy using anaconda envs
+setpy() {
+ if [ $# == 0 ]; then
+   pth=$(mostrecentdir ${ANACONDA_HOME}/envs)
+ else
+   pth=$1
+ fi
+ echo "Using "${pth}" conda environment"
+ source activate ${pth}
 }
 
 iP() {
@@ -153,6 +172,9 @@ unset UVCDAT_SETUP_PATH
 
 export PATH=${ANDROIDPATH}:${PATH}:/usr/local/mysql/bin
 export PATH=${ANDROIDPATH}:${PATH}:${HOME}/bin:/usr/local/mysql/bin
+echo "ANACONDA:"${ANACONDA_HOME}
+export PATH=${ANACONDA_HOME}/bin:$PATH
+
 
 # Stuff I don't want from Gavin's repo
 export CDPATH=.:..
