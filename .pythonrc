@@ -36,8 +36,7 @@ t = s.getTime()
 tc = t.asComponentTime()
 
 # VCS
-#x=vcs.init(geometry={"width":800,"height":600})
-x=vcs.init()
+x=vcs.init(geometry={"width":800,"height":600})
 iso=x.createisofill()
 T=x.createtemplate()
 
