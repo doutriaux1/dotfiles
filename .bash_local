@@ -17,7 +17,8 @@ case "$h" in
   *il-*)
      CDATBUILDS="/lgm/uvcdat";;
   sofia)
-     CDATBUILDS="/lgm/uvcdat";;
+     CDATBUILDS="/lgm/uvcdat"
+     ANACONDA_HOME=${HOME}/anaconda2;;
   cab*)
      CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default";;
   *Mac*)
@@ -26,7 +27,8 @@ case "$h" in
   *rhea-lo*)
      CDATBUILDS="/lustre/atlas/world-shared/csc121/uvcdat";;
   sierra*)
-     CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default";;
+     CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default"
+     ANACONDA_HOME=/usr/gapps/uvcdat/anaconda2;;
   *)
      CDATBUILDS="/usr/local/uvcdat"
      ANACONDA_HOME=${HOME}/anaconda2;;
@@ -120,8 +122,17 @@ unset LD_LIBRARY_PATH
 unset PYTHONPATH
 unset UVCDAT_SETUP_PATH
 
-mostrecentdir() {
-    echo $(basename `ls -lrtd /$1/*/ | awk '{print $9}' | tail -n1  `)
+# Given a dir list most recent file
+# extra args are files to exclude/ignore
+function mostrecentdir {
+    DIRS=`ls -lrt $1 | awk '{print $9}'`
+    EXCLUDES=${@:2}
+    for EXCLUDE in $EXCLUDES
+        do
+            DIRS=`echo $DIRS | sed "s/${EXCLUDE}//g"`
+        done
+    echo `echo ${DIRS} | tr " " "\n" | tail -n1`
+
 }
 
 smv() { 
@@ -144,7 +155,7 @@ setpy_cmake() {
 # Newer setpy using anaconda envs
 setpy() {
  if [ $# == 0 ]; then
-   pth=$(mostrecentdir ${ANACONDA_HOME}/envs)
+   pth=$(mostrecentdir ${ANACONDA_HOME}/envs _build)
  else
    pth=$1
  fi
