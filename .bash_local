@@ -13,7 +13,7 @@ case "$h" in
   oceanonly*)
      ANACONDA_HOME=/usr/local/anaconda2;;
   crunchy*)
-     ANACONDA_HOME=/usr/local/anaconda2;;
+     ANACONDA_HOME=${HOME}/anaconda2;;
   *il-*)
      CDATBUILDS="/lgm/uvcdat";;
   sofia)
