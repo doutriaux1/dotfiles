@@ -272,3 +272,6 @@ fi
 
 unset GREP_COLOR
 unset OPAL_PREFIX
+
+echo "Do not forget to run:"
+echo "sudo pam_tally2 --user doutriaux1 --reset"
