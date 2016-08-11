@@ -4,9 +4,11 @@ case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
   maryam)
-     CDATBUILDS="/lgm/uvcdat";;
+     CDATBUILDS="/lgm/uvcdat"
+     ANACONDA_HOME=${HOME}/anaconda2;;
   meryem)
-     CDATBUILDS="/lgm/uvcdat";;
+     CDATBUILDS="/lgm/uvcdat"
+     ANACONDA_HOME=${HOME}/anaconda2;;
   omar)
      CDATBUILDS="/lgm/uvcdat"
      ANACONDA_HOME=${HOME}/miniconda2;;
@@ -161,6 +163,9 @@ setpy() {
  fi
  echo "Using "${pth}" conda environment"
  source activate ${pth}
+ if [ `uname` == "Darwin" ]; then
+    export DYLD_FALLBACK_LIBRARY_PATH=${ANACONDA_HOME}/envs/${pth}/lib
+ fi
 }
 
 iP() {
