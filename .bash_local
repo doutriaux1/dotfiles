@@ -168,7 +168,7 @@ setpy() {
  fi
 }
 
-iP() {
+iPuvcdat() {
   if [ $# == 0 ]; then
      PKG=vcs
   else
@@ -185,6 +185,27 @@ iP() {
   where=$(pwd)
   cd $(dirname $(dirname $(readlink ${HOME}/.bash_local)))
   cd uvcdat/Packages/${PKG}
+  ${CMD}
+  cd ${where}
+}
+
+iP() {
+  if [ $# == 0 ]; then
+     PKG=vcs
+  else
+     PKG=$1
+  fi
+  if [ $# == 2 ]; then
+     CMD=spb
+  else
+     CMD='python setup.py install'
+  fi
+  if [ $PKG == "vcs" ]; then
+     CMD=$CMD" --old-and-unmanageable"
+  fi
+  where=$(pwd)
+  cd $(dirname $(dirname $(readlink ${HOME}/.bash_local)))
+  cd ${PKG}
   ${CMD}
   cd ${where}
 }
