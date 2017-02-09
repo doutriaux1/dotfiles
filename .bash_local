@@ -12,6 +12,8 @@ case "$h" in
   omar)
      CDATBUILDS="/lgm/uvcdat"
      ANACONDA_HOME=${HOME}/miniconda2;;
+  lapetitechipie*)
+     ANACONDA_HOME=/lgm/Anaconda;;
   oceanonly*)
      ANACONDA_HOME=/usr/local/anaconda2;;
   crunchy*)
