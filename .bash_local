@@ -93,6 +93,9 @@ alias gst='git status'
 alias gbr='for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort -r'
 alias gb='for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort'
 
+## Conda
+alias cenv='conda env list | grep \* | cut -d" " -f1'
+
 notrailing() {
   echo "Removing white spaces at end of lines for: $1"
   find . -name $1 -print0  | xargs -r0 sed -e 's/[[:blank:]]\+$//' -i
@@ -168,6 +171,7 @@ setpy() {
  fi
 }
 
+
 iPuvcdat() {
   if [ $# == 0 ]; then
      PKG=vcs
@@ -240,7 +244,7 @@ alias lcu='export LC_CTYPE=en_US.UTF-8'
 PROMPT_ADDRESS_COLOR=${_BLUE}
 PROMPT_COMMAND_HIST_INDEX_COLOR=${_GOLD}
 
-PS1=${PS1//\W/\w}
+export PS1=${PS1//\W/\w}
 
 export HISTCONTROL=erasedups
 export HISTSIZE=1000000
