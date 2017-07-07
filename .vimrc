@@ -13,7 +13,9 @@ filetype plugin indent on
 "
 "code folding
 set foldmethod=indent
-set foldlevel=99
+set foldlevel=1
+set foldnestmax=10
+set nofoldenable
 
 "Window SPlits
 "Vertical Split : Ctrl+w + v
