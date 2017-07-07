@@ -1,0 +1,3 @@
+ssl_verify: 'false'
+changeps1: true
+anaconda_upload: false
