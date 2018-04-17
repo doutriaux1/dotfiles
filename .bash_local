@@ -1,5 +1,4 @@
 h=`hostname -s`
-ANDROIDPATH=""
 case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
@@ -26,8 +25,7 @@ case "$h" in
   cab*)
      CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default";;
   *Mac*)
-     CDATBUILDS="/lgm/uvcdat"
-     ANDROIDPATH=${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/tools:${HOME}/Android/adt-bundle-mac-x86_64-20130729/sdk/platform-tools;;
+     CDATBUILDS="/lgm/uvcdat";;
   *rhea-lo*)
      CDATBUILDS="/lustre/atlas/world-shared/csc121/uvcdat";;
   sierra*)
@@ -262,8 +260,6 @@ unset LD_LIBRARY_PATH
 unset PYTHONPATH
 unset UVCDAT_SETUP_PATH
 
-export PATH=${ANDROIDPATH}:${PATH}:/usr/local/mysql/bin
-export PATH=${ANDROIDPATH}:${PATH}:${HOME}/bin:/usr/local/mysql/bin
 echo "ANACONDA:"${ANACONDA_HOME}
 export PATH=${ANACONDA_HOME}/bin:$PATH
 

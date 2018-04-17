@@ -1,6 +1,7 @@
-import readline
+"""
+#import readline
 # import rlcompleter
-readline.parse_and_bind("tab: complete")
+#readline.parse_and_bind("tab: complete")
 import sys
 import os
 import vtk
@@ -48,4 +49,4 @@ def Classes(obj, firsttime=True):
         res.add(c)
         res.update(Classes(c, False))
     return res
-
+"""
