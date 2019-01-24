@@ -1,4 +1,4 @@
-import readline
+"""
 # import rlcompleter
 readline.parse_and_bind("tab: complete")
 import sys
@@ -49,3 +49,4 @@ def Classes(obj, firsttime=True):
         res.update(Classes(c, False))
     return res
 
+"""

@@ -1,3 +1,11 @@
+channels:
+#- cdat/label/v80
+# - conda-forge
+# - cdat
+- defaults
+
 ssl_verify: 'false'
+
 changeps1: true
+
 anaconda_upload: false

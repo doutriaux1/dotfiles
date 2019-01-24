@@ -1,3 +1,4 @@
+set ruler
 set nonu
 set ff=unix
 set modeline
