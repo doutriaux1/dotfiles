@@ -31,6 +31,8 @@ case "$h" in
   sierra*)
      CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default"
      ANACONDA_HOME=/usr/gapps/uvcdat/anaconda2;;
+  drdoom*)
+     ANACONDA_HOME=${HOME}/miniconda3;;
   *)
      CDATBUILDS="/usr/local/uvcdat"
      ANACONDA_HOME=${HOME}/anaconda2;;
@@ -165,7 +167,7 @@ setpy() {
    pth=$1
  fi
  echo "Using "${pth}" conda environment"
- source activate ${pth}
+ conda activate ${pth}
  if [ `uname` == "Darwin" ]; then
     export DYLD_FALLBACK_LIBRARY_PATH=${ANACONDA_HOME}/envs/${pth}/lib
  fi
@@ -261,7 +263,9 @@ unset PYTHONPATH
 unset UVCDAT_SETUP_PATH
 
 echo "ANACONDA:"${ANACONDA_HOME}
-export PATH=${ANACONDA_HOME}/bin:$PATH
+#export PATH=${ANACONDA_HOME}/bin:$PATH
+source ${ANACONDA_HOME}/etc/profile.d/conda.sh
+conda activate
 
 
 # Stuff I don't want from Gavin's repo
