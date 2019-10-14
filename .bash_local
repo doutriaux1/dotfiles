@@ -36,7 +36,7 @@ case "$h" in
   drdoom*)
      ANACONDA_HOME=${HOME}/miniconda3;;
   *)
-     ANACONDA_HOME=${HOME}/anaconda2;;
+     ANACONDA_HOME=${HOME}/miniconda3;;
 esac
 case `uname` in
   Darwin*)
