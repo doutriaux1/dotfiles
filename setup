@@ -21,8 +21,6 @@
 #*****************************************************************
 # Copied from github.com:gavinmbell/bash_resources.git
 
-#TODO - implement revert_homedir function
-#TODO - write arg code to trigger revert if necessary
 
 DEBUG=0
 DRY_RUN=0
