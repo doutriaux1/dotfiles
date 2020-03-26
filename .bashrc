@@ -39,3 +39,5 @@ alias ll="ls -l"
 alias md="mkdir"
 alias pd="pushd"
 
+# SSH AGENT
+alias agent="eval `ssh-agent` ; ssh-add"
