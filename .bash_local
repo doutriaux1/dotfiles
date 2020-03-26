@@ -2,41 +2,19 @@ h=`hostname -s`
 case "$h" in
   vpn*)
      CDATBUILDS="/lgm/uvcdat";;
-  maryam)
-     CDATBUILDS="/lgm/uvcdat"
-     ANACONDA_HOME=${HOME}/anaconda2;;
-  meryem)
-     CDATBUILDS="/lgm/uvcdat"
-     ANACONDA_HOME=${HOME}/anaconda2;;
-  omar)
-     CDATBUILDS="/lgm/uvcdat"
-     ANACONDA_HOME=${HOME}/miniconda2;;
   lapetitechipie*)
      ANACONDA_HOME=/lgm/Anaconda;;
   oceanonly*)
      ANACONDA_HOME=/usr/local/anaconda2;;
   crunchy*)
      ANACONDA_HOME=${HOME}/anaconda2;;
-  *il-*)
-     CDATBUILDS="/lgm/uvcdat";;
-  sofia)
-     CDATBUILDS="/lgm/uvcdat"
-     ANACONDA_HOME=${HOME}/anaconda2;;
-  cab*)
-     CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default";;
   *Mac*)
      CDATBUILDS="/lgm/uvcdat";;
-  *rhea-lo*)
-     CDATBUILDS="/lustre/atlas/world-shared/csc121/uvcdat";;
   sierra*)
      CDATBUILDS="/usr/gapps/uvcdat/chaos_5_x86_64_ib/default"
      ANACONDA_HOME=/usr/gapps/uvcdat/anaconda2;;
-  loki*)
-     ANACONDA_HOME=${HOME}/miniconda3;;
-  drdoom*)
-     ANACONDA_HOME=${HOME}/miniconda3;;
   *)
-     ANACONDA_HOME=${HOME}/anaconda2;;
+     ANACONDA_HOME=${HOME}/miniconda3;;
 esac
 case `uname` in
   Darwin*)

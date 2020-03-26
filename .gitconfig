@@ -1,21 +1,19 @@
-
 [alias]
   dry2 = "!f() { grep -q 'changed in both' < $(git merge-tree $(git merge-base FETCH_HEAD $1) $1 FETCH_HEAD) && echo 'Merge conflict detected' || echo 'Merged cleanly'; }; f"
 
   dry = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
   rshw = remote show
   rprn = remote prune
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [push]
 	default = current
 [user]
-	name = Charles Doutriaux
 	email = doutriaux1@llnl.gov
-
-[color]
-	ui = auto
-[url "git://uv-cdat.llnl.gov/windfield.git"]
-	insteadof = http://uv-cdat.llnl.gov/git/windfield.git
+	name = Charles Doutriaux
 [http]
+	sslBackend = schannel
     sslVerify = false
-
+[core]
+	autocrlf = false
