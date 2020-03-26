@@ -5,6 +5,8 @@
   dry = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
   rshw = remote show
   rprn = remote prune
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [push]
 	default = current
