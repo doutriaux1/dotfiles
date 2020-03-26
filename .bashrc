@@ -35,6 +35,7 @@ export TMOUT=0
 
 # Unix
 alias ls="ls -h"
+alias ll="ls -l"
 alias md="mkdir"
 alias pd="pushd"
 
