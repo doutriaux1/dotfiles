@@ -71,7 +71,7 @@ _readlinkf() {
 setup_local_files() {
     [ ! -e .git ] && echo "Sorry this is not a git repo" && exit 1
     local mod_count=0
-    local my_dot_files=(.bash_local .gitconfig .emacs .emacs.d .condarc .pythonrc .vimrc .vim .ipython bin)
+    local my_dot_files=(.bashrc .bash_local .gitconfig .emacs .emacs.d .condarc .pythonrc .vimrc .vim .ipython bin)
     mkdir ${homedir}/.vim
     mkdir ${homedir}/bin
     for dot_file in ${my_dot_files[@]}; do
