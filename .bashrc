@@ -7,8 +7,8 @@ export SPACK_ROOT=/usr/workspace/cdoutrix/spack
 alias activate_spack=". ${SPACK_ROOT}/share/spack/setup-env.sh"
 
 # CONDA
-export activate_conda="source /g/g19/cdoutrix/miniconda3/bin/activate"
-export activate_amlcs="conda activate /usr/workspace/aml_cs/kosh/toss_3_x86_64_ib/dev"
+alias activate_conda="source /g/g19/cdoutrix/miniconda3/bin/activate"
+alias activate_amlcs="conda activate /usr/workspace/aml_cs/kosh/toss_3_x86_64_ib/dev"
 
 ## Git 
 alias gci="git commit"
