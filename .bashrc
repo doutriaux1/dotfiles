@@ -40,4 +40,7 @@ alias md="mkdir"
 alias pd="pushd"
 
 # SSH AGENT
-alias agent="eval `ssh-agent` ; ssh-add"
+function agent {
+   eval `ssh-agent` ;
+   ssh-add
+   }
