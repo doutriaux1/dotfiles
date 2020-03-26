@@ -253,8 +253,8 @@ unset UVCDAT_SETUP_PATH
 
 echo "ANACONDA:"${ANACONDA_HOME}
 #export PATH=${ANACONDA_HOME}/bin:$PATH
-source ${ANACONDA_HOME}/etc/profile.d/conda.sh
-conda activate
+#source ${ANACONDA_HOME}/etc/profile.d/conda.sh
+#conda activate
 
 
 # Stuff I don't want from Gavin's repo
